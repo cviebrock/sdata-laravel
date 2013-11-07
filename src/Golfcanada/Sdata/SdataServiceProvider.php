@@ -46,7 +46,7 @@ class SdataServiceProvider extends ServiceProvider {
 		$this->app['sdata'] = $this->app->share(function($app)
 		{
 			$config = $app['config']->get('sdata::config');
-			return Client::factory($config);
+			return Sdata::factory($config);
 		});
 	}
 

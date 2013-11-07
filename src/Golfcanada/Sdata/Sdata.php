@@ -1,22 +1,12 @@
 <?php namespace Golfcanada\Sdata;
 
-
-// use ArrayAccess;
-// use Carbon;
-// use Closure;
-// use Config;
-// use DateTime;
-// use Illuminate\Support\Collection;
-// use Illuminate\Support\Contracts\ArrayableInterface;
-// use Illuminate\Support\Contracts\JsonableInterface;
-// use Illuminate\Support\Str;
 use Guzzle\Common\Collection;
 use Guzzle\Common\Event;
 use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
 use Cviebrock\Guzzle\Plugin\StripBom\StripBomPlugin;
 
-class Client extends Client {
+class Sdata extends Client {
 
 	public static function factory( $config = array() )
   {
@@ -26,7 +16,6 @@ class Client extends Client {
 			'base_url',
 			'username',
 			'password',
-			'version',
 		);
 
     // Merge in default settings and validate the config
@@ -56,8 +45,8 @@ class Client extends Client {
 		}
 
 		// Set the service description
-		$path = __DIR__ . '/' . $config->get('version') . '/services.php';
-    $client->setDescription(ServiceDescription::factory($path));
+		$path = __DIR__ . '/../../services/services.php';
+    $client->setDescription( ServiceDescription::factory($path) );
 
     // Done
     return $client;
