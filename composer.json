@@ -1,5 +1,5 @@
 {
-    "name": "golfcanada/api",
+    "name": "golfcanada/sdata",
     "description": "",
     "authors": [
         {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Golfcanada\\Api": "src/"
+            "Golfcanada\\Sdata": "src/"
         }
     },
     "minimum-stability": "dev"

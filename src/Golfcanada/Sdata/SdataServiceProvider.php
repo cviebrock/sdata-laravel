@@ -1,8 +1,8 @@
-<?php namespace Golfcanada\Api;
+<?php namespace Golfcanada\Sdata;
 
 use Illuminate\Support\ServiceProvider;
 
-class ApiServiceProvider extends ServiceProvider {
+class SdataServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
