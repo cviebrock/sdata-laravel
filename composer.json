@@ -1,20 +1,23 @@
 {
-    "name": "golfcanada/sdata",
-    "description": "",
-    "authors": [
-        {
-            "name": "Colin Viebrock",
-            "email": "colin@viebrock.ca"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.0",
-        "illuminate/support": "4.0.x"
-    },
-    "autoload": {
-        "psr-0": {
-            "Golfcanada\\Sdata": "src/"
-        }
-    },
-    "minimum-stability": "dev"
+	"name": "golfcanada/sdata",
+	"description": "Sdata connector for Golf Canada",
+	"authors": [
+		{
+			"name": "Colin Viebrock",
+			"email": "colin@viebrock.ca"
+		}
+	],
+	"require": {
+		"php": ">=5.3.0",
+		"illuminate/support": "4.0.*",
+		"guzzle/guzzle": "3.7.*",
+		"nesbot/carbon": "1.*",
+		"cviebrock/guzzle-stripbom-plugin": "0.1.*"
+	},
+	"autoload": {
+		"psr-0": {
+			"Golfcanada\\Sdata": "src/"
+		}
+	},
+	"minimum-stability": "dev"
 }

@@ -12,13 +12,23 @@ class SdataServiceProvider extends ServiceProvider {
 	protected $defer = false;
 
 	/**
+	 * Bootstrap the application events.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+		$this->package('golfcanada/sdata');
+	}
+
+	/**
 	 * Register the service provider.
 	 *
 	 * @return void
 	 */
 	public function register()
 	{
-		//
+		$this->registerSdata();
 	}
 
 	/**
@@ -28,7 +38,16 @@ class SdataServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('sdata');
+	}
+
+	public function registerSdata()
+	{
+		$this->app['sdata'] = $this->app->share(function($app)
+		{
+			$config = $app['config']->get('sdata::config');
+			return Client::factory($config);
+		});
 	}
 
 }
