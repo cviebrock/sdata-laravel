@@ -1,0 +1,20 @@
+{
+    "name": "golfcanada/api",
+    "description": "",
+    "authors": [
+        {
+            "name": "Colin Viebrock",
+            "email": "colin@viebrock.ca"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "psr-0": {
+            "Golfcanada\\Api": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
