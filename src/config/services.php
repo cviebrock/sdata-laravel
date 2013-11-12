@@ -9,8 +9,8 @@ return array(
 	'operations' => [],
 
 	'includes' => [
-		__DIR__ . '/includes/golfer.php',
-		__DIR__ . '/includes/address.php',
+		__DIR__ . '/services/golfer.php',
+		__DIR__ . '/services/address.php',
 	]
 
 );

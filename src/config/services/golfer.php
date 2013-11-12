@@ -6,10 +6,10 @@ return array(
 
   'operations' => [
 
-    'getAllGolfers' => [
+    'getGolfers' => [
       'httpMethod'    => 'GET',
       'uri'           => 'contacts',
-      'summary'       => 'Get basic information on all golfers',
+      'summary'       => 'Get all golfers',
       'responseClass' => 'Sdata\\V1\\Support\\Collection',
       'data' => [
         'responseCollection' => 'Golfer',
@@ -40,6 +40,25 @@ return array(
         ]
       ]
     ],
+
+    'findGolfersByName' => [
+      'summary' => 'Retrieve all golfers by name search, optionally filtered by club'
+      'httpMethod' => 'GET',
+      'uri' => 'contacts?where Name like ',
+      'responseClass' => 'Collection',
+      'parameters' => [
+        'search' => [
+          'type' => 'string',
+          'required' => true,
+          'location' => 'query',
+        ],
+        'club_id' => [
+          'type' => 'string',
+          'required' => false,
+          'location' => 'query',
+        ],
+      ]
+    ]
 
     'getGolfer' => [
       'httpMethod'    => 'GET',
