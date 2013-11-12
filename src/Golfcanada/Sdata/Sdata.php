@@ -45,7 +45,7 @@ class Sdata extends Client {
 		}
 
 		// Set the service description
-		$services = \Config::get('sdata::services.php');
+		$services = \Config::get('sdata::services');
     $client->setDescription( ServiceDescription::factory($services) );
 
     // Done
