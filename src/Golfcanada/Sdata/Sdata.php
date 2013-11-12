@@ -45,8 +45,8 @@ class Sdata extends Client {
 		}
 
 		// Set the service description
-		$path = __DIR__ . '/../../services/services.php';
-    $client->setDescription( ServiceDescription::factory($path) );
+		$services = \Config::get('sdata::services.php');
+    $client->setDescription( ServiceDescription::factory($services) );
 
     // Done
     return $client;
