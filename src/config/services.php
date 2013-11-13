@@ -1,13 +1,18 @@
 <?php
 
+
 return array(
 
-	'name'        => 'Default Service Description',
-	'apiVersion'  => '1.0.0',
-	'description' => '',
+	/*
+	 * uncomment this if you want to use Guzzle service descriptions
+	 */
 
-	'operations' => [],
+	// 'name'        => 'Default Service Description',
+	// 'apiVersion'  => '1.0.0',
+	// 'description' => '',
 
-	'includes' => []
+	// 'operations' => [],
+
+	// 'includes' => []
 
 );
