@@ -15,7 +15,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"Golfcanada\\Sdata": "src/"
+			"Golfcanada": "src/"
 		}
 	},
 	"minimum-stability": "dev"
