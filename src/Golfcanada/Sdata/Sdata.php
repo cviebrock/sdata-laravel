@@ -2,6 +2,9 @@
 
 use Guzzle\Common\Collection;
 use Guzzle\Common\Event;
+use Guzzle\Http\Exception\ClientErrorResponseException;
+use Guzzle\Http\Message\Request;
+use Guzzle\Http\Message\Response;
 use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
 use Cviebrock\Guzzle\Plugin\StripBom\StripBomPlugin;
@@ -51,6 +54,80 @@ class Sdata extends Client {
     // Done
     return $client;
 
+	}
+
+
+
+	public function getClubs($search=null)
+	{
+		$uri = 'accounts?where=Type eq "Member Club"';
+		if ( $search )
+		{
+			$uri .= ' and AccountName like "%' . trim(\Str::lower($search)) . '%"';
+		}
+		$uri .= '&select=AccountName,Fax,MainPhone,WebAddress,Address/City,Address/State';
+		$req = $this->get($uri);
+		return $this->processRequest( $req );
+	}
+
+
+	public function getClub($id)
+	{
+		$uri = "accounts('". $id ."')";
+		$uri .= '?select=AccountName,Fax,MainPhone,WebAddress,Address/City,Address/State';
+		$req = $this->get($uri);
+		return $this->processRequest( $req );
+	}
+
+
+
+	protected function processRequest( Request $request )
+	{
+		try {
+			$response = $request->send();
+		} catch ( \Guzzle\Http\Exception\ClientErrorResponseException $e ) {
+			$code = $e->getResponse()->getStatusCode();
+			if ($code==404) {
+				return null;
+			}
+			throw($e);
+		}
+		return $this->processResponse( $response );
+
+	}
+
+
+	protected function processResponse( Response $response )
+	{
+
+		$json = $response->json();
+
+		if (array_key_exists('$resources', $json)) {
+			$array = $this->processJson( $json['$resources'] );
+			foreach($array as $k=>$v) {
+				$array[$k] = array_dot($v);
+			}
+			return new \Illuminate\Support\Collection($array);
+		} else {
+			return array_dot( $this->processJson( $json ) );
+		}
+
+	}
+
+	protected function processJson( $array )
+	{
+		foreach($array as $k=>$v) {
+			if (substr($k,0,1)==='$' && $k!=='$key')
+			{
+				unset($array[$k]);
+			}
+			else if (is_array($v))
+			{
+				$array[$k] = $this->processJson($v);
+			}
+		}
+
+		return $array;
 	}
 
 }
