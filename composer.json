@@ -1,6 +1,6 @@
 {
-	"name": "golfcanada/sdata",
-	"description": "Sdata connector for Golf Canada",
+	"name": "cviebrock/sdata",
+	"description": "Sdata connector for Laravel",
 	"authors": [
 		{
 			"name": "Colin Viebrock",
@@ -15,7 +15,7 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"Golfcanada\\Sdata": "src/"
+			"Cviebrock\\Sdata": "src/"
 		}
 	},
 	"minimum-stability": "dev"

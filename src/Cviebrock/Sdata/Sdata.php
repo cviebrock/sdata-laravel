@@ -1,4 +1,4 @@
-<?php namespace Golfcanada\Sdata;
+<?php namespace Cviebrock\Sdata;
 
 use Guzzle\Common\Collection;
 use Guzzle\Common\Event;

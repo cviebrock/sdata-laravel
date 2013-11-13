@@ -1,6 +1,7 @@
-<?php namespace GolfCanada\Sdata\Facades;
+<?php namespace Cviebrock\Sdata\Facades;
 
 use Illuminate\Support\Facades\Facade;
+
 
 class Sdata extends Facade {
 

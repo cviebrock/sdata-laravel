@@ -1,6 +1,7 @@
-<?php namespace Golfcanada\Sdata;
+<?php namespace Cviebrock\Sdata;
 
 use Illuminate\Support\ServiceProvider;
+
 
 class SdataServiceProvider extends ServiceProvider {
 
@@ -18,7 +19,7 @@ class SdataServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('golfcanada/sdata');
+		$this->package('cviebrock/sdata');
 	}
 
 	/**
