@@ -2,9 +2,6 @@
 
 use Guzzle\Common\Collection;
 use Guzzle\Common\Event;
-use Guzzle\Http\Exception\ClientErrorResponseException;
-use Guzzle\Http\Message\Request;
-use Guzzle\Http\Message\Response;
 use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
 use Cviebrock\Guzzle\Plugin\StripBom\StripBomPlugin;

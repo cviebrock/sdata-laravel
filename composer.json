@@ -1,10 +1,13 @@
 {
-	"name": "cviebrock/sdata",
-	"description": "Sdata connector for Laravel",
+	"name": "cviebrock/sdata-laravel",
+	"description": "sData connector for Laravel",
+  "keywords": ["sdata", "laravel"],
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Colin Viebrock",
-			"email": "colin@viebrock.ca"
+			"email": "colin@viebrock.ca",
+			"homepage": "https://github.com/cviebrock"
 		}
 	],
 	"require": {

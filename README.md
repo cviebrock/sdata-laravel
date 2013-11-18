@@ -1,1 +1,1 @@
-# Sdata connector for Golf Canada
+# sData connector for Laravel
